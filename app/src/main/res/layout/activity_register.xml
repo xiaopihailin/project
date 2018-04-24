@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:paddingRight="@dimen/default_margin">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="@color/black333"
+            android:textSize="@dimen/title_size"/>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl_account"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/ll_title"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/transparent">
+        <ImageView
+            android:id="@+id/iv_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <com.example.godlight.view.ClearEditText
+            android:id="@+id/et_account"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iv_account"
+            android:background="@color/transparent"
+            android:inputType="text"
+            android:hint="请输入手机号"
+            android:maxLength="11"
+            android:singleLine="true"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="15sp" />
+        <com.example.godlight.view.TimerTextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+        <View
+            android:id="@+id/view_account"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/d9d9d9" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_sms_code"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/rl_account"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/transparent">
+        <ImageView
+            android:id="@+id/iv_sms_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <com.example.godlight.view.ClearEditText
+            android:id="@+id/et_sms_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iv_sms_code"
+            android:background="@color/transparent"
+            android:inputType="text"
+            android:hint="请输入验证码"
+            android:maxLength="11"
+            android:singleLine="true"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/view_sms_code"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/d9d9d9" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/rl_sms_code"
+        android:background="@color/transparent">
+        <ImageView
+            android:id="@+id/iv_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <com.example.godlight.view.ClearEditText
+            android:id="@+id/et_login_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iv_pwd"
+            android:background="@color/transparent"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="15sp" />
+        <View
+            android:id="@+id/view_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/d9d9d9" />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btn_register"
+        style="@style/bigButton"
+        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:clickable="true"
+        android:background="@drawable/bg_stoke_btn_green_true"
+        android:layout_below="@+id/rl_pwd"
+        android:text="注 册" />
+
+
+</RelativeLayout>

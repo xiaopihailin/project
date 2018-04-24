@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2D91FF</color>
+    <color name="colorPrimaryDark">#2D91FF</color>
+    <color name="colorAccent">#2D91FF</color>
+
+
+    <!-- 字体颜色由 999-333颜色逐渐加深 -->
+    <!-- 字体颜色由 999-333颜色逐渐加深 -->
+    <color name="blackbbb">#BBBBBB</color>
+    <color name="black999">#999999</color>
+    <color name="black666">#666666</color>
+    <color name="black333">#333333</color>
+    <color name="colorBlue">#30C3DC</color>
+    <color name="colorGreen">#FC7830</color>
+    <color name="lightGreen">#F5A071</color>
+    <!-- 灰色 -->
+    <color name="gray">#ececec</color>
+    <color name="textcolor_hint">#D9D9D9</color>
+    <color name="view_line">#F2F2F2</color>
+    <color name="color_login_line">#ECECEC</color>
+    <color name="province_line_border">#D0D0D0</color>
+    <color name="checkVin">#DDDDDD</color>
+    <color name="carfilebase">#3a62c7</color>
+    <color name="colorhint">#d9d9d9</color>
+    <!-- 标题栏背景 -->
+
+    <!-- 透明色 -->
+    <color name="transparent">#00000000</color>
+    <!-- 白色 -->
+    <color name="white">#FFFFFF</color>
+    <color name="item_bg">#fbfcfd</color>
+    <color name="d9d9d9">#D9D9D9</color>
+    <color name="circle_border">#ABC2F3</color>
+    <color name="whiteSmoke">#EEEEEE</color>
+
+    <!-- 黑色 -->
+    <color name="black">#333333</color>
+    <color name="bestBlack">#70000000</color>
+    <color name="black_weak">#555555</color>
+    <color name="black_weakest">#8C8C8C</color>
+    <color name="black_trans">#80000000</color>
+    <color name="whitetrans">#8dffffff</color>
+    <!-- 灰色 -->
+    <color name="gray_line">#E5E5E5</color>
+
+
+
+</resources>
