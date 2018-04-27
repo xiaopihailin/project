@@ -116,10 +116,13 @@ public class TimerTextView extends LinearLayout {
     /**
      * @param length
      */
-    public void setTimes(Integer length) {
+    public String setTimes(Integer length) {
         tvTime.setText(strStart + length + strEnd);
         second = length;
-
+        return tvTime.getText().toString();
+    }
+    public String getTimes() {
+        return tvTime.getText().toString();
     }
 
     public void stopRun() {
@@ -135,6 +138,10 @@ public class TimerTextView extends LinearLayout {
         this.strEnd = strEnd;
         tvTime.setText(originalDes);
 
+    }
+
+    public void setToast() {
+        Toast.makeText(context,"验证码已发送", Toast.LENGTH_LONG).show();
     }
 
 //    /**

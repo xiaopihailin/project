@@ -24,14 +24,35 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/huanying"
+        android:layout_marginTop="@dimen/y30"
+        android:layout_below="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="欢迎注册神灯搜索平台"
+            />
+        <ImageView
+            android:layout_marginTop="@dimen/y10"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher"
+            />
 
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/rl_account"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_below="@+id/ll_title"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/huanying"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@color/transparent">
@@ -57,58 +78,9 @@
             android:textColor="@color/black333"
             android:textColorHint="@color/black999"
             android:textSize="15sp" />
-        <com.example.godlight.view.TimerTextView
-            android:id="@+id/tv_timer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true" />
-        <View
-            android:id="@+id/view_account"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:background="@color/d9d9d9" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/rl_sms_code"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_below="@+id/rl_account"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@color/transparent">
-        <ImageView
-            android:id="@+id/iv_sms_code"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true" />
 
-        <com.example.godlight.view.ClearEditText
-            android:id="@+id/et_sms_code"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/iv_sms_code"
-            android:background="@color/transparent"
-            android:inputType="text"
-            android:hint="请输入验证码"
-            android:maxLength="11"
-            android:singleLine="true"
-            android:textColor="@color/black333"
-            android:textColorHint="@color/black999"
-            android:textSize="15sp" />
-
-        <View
-            android:id="@+id/view_sms_code"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:background="@color/d9d9d9" />
     </RelativeLayout>
+
 
     <RelativeLayout
         android:id="@+id/rl_pwd"
@@ -117,7 +89,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_below="@+id/rl_sms_code"
+        android:layout_below="@+id/rl_account"
         android:background="@color/transparent">
         <ImageView
             android:id="@+id/iv_pwd"
@@ -147,17 +119,146 @@
             android:layout_alignParentBottom="true"
             android:background="@color/d9d9d9" />
     </RelativeLayout>
-    <Button
-        android:id="@+id/btn_register"
-        style="@style/bigButton"
-        android:textColor="@color/white"
-        android:layout_marginTop="50dp"
+    <RelativeLayout
+        android:layout_below="@+id/rl_sms_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_register"
+            style="@style/bigButton"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            android:background="@drawable/bg_stoke_btn_green_true"
+
+            android:text="下一步" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_sms_code"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/zaici_pwd"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:clickable="true"
-        android:background="@drawable/bg_stoke_btn_green_true"
+        android:background="@color/transparent">
+        <ImageView
+            android:id="@+id/iv_sms_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <com.example.godlight.view.ClearEditText
+            android:id="@+id/et_sms_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iv_sms_code"
+            android:background="@color/transparent"
+            android:inputType="text"
+            android:hint="请输入验证码"
+            android:maxLength="11"
+            android:singleLine="true"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="15sp" />
+        <com.example.godlight.view.TimerTextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+        <View
+            android:id="@+id/view_sms_code"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/d9d9d9" />
+
+        <View
+            android:id="@+id/view_account"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="86dp"
+            android:layout_toEndOf="@+id/iv_sms_code"
+            android:layout_toRightOf="@+id/iv_sms_code"
+            android:background="@color/d9d9d9" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/zaici_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:layout_below="@+id/rl_pwd"
-        android:text="注 册" />
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/transparent">
+        <ImageView
+            android:id="@+id/zc_iv_sms_code_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
 
+        <com.example.godlight.view.ClearEditText
+            android:id="@+id/zc_et_sms_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/zc_iv_sms_code_imageview"
+            android:background="@color/transparent"
+            android:inputType="textPassword"
+            android:hint="请再次输入密码"
+            android:maxLength="11"
+            android:singleLine="true"
+            android:textColor="@color/black333"
+            android:textColorHint="@color/black999"
+            android:textSize="15sp" />
 
+        <View
+            android:id="@+id/zc_view_sms_code"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/d9d9d9" />
+
+        <View
+            android:id="@+id/zc_view_account"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="86dp"
+            android:layout_toEndOf="@+id/zc_iv_sms_code_imageview"
+            android:layout_toRightOf="@+id/zc_iv_sms_code_imageview"
+            android:background="@color/d9d9d9" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/rl_sms_code"
+        android:layout_marginLeft="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/radio_button"
+            android:layout_below="@+id/rl_sms_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同意用户协议（神灯搜索北京有限公司）"
+            />
+    </LinearLayout>
 </RelativeLayout>

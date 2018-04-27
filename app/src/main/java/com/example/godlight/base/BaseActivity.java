@@ -3,6 +3,7 @@ package com.example.godlight.base;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -11,7 +12,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import com.example.godlight.R;
+import com.example.godlight.utils.StatusBarUtil;
 import com.example.godlight.view.SystemBarTintManager;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import static com.example.godlight.utils.StatusBarUtil.FlymeSetStatusBarLightMode;
+import static com.example.godlight.utils.StatusBarUtil.MIUISetStatusBarLightMode;
 
 
 /**
@@ -26,8 +34,62 @@ public abstract class BaseActivity extends Activity {
         initData();
         progress();
         setAllEvent();
-        setStatusBarColor(R.color.colorPrimaryDark);
 
+        //transparencyBar(this);
+        //StatusBarLightMode(this);
+
+        //processMIUI(true);
+        //setStatusBarColor(R.color.blackbbb);
+        //StatusBarCompat.setStatusBarColor(this, Color.BLUE, false);
+        //StatusBarUtil.setStatusBarLightMode(getWindow());
+        //SystemUtil.setMeizuStatusBarDarkIcon(this,true);
+    }
+
+
+    /**
+     *设置状态栏黑色字体图标，
+     * 适配4.4以上版本MIUIV、Flyme和6.0以上版本其他Android
+     * @param activity
+     * @return 1:MIUUI 2:Flyme 3:android6.0
+     */
+    public static int StatusBarLightMode(Activity activity){
+        int result=0;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if(MIUISetStatusBarLightMode(activity.getWindow(), true)){
+                result=1;
+            }else if(FlymeSetStatusBarLightMode(activity.getWindow(), true)){
+                result=2;
+            }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                activity.getWindow().getDecorView().setSystemUiVisibility( View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                result=3;
+            }
+        }
+        return result;
+    }
+
+
+
+
+
+
+
+    //透明状态栏
+    @TargetApi(19)
+    public static void transparencyBar(Activity activity){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = activity.getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+
+        } else
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window =activity.getWindow();
+            window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
     }
 
 
@@ -56,6 +118,31 @@ public abstract class BaseActivity extends Activity {
         window.setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
+    private void processMIUI(boolean lightStatusBar) {
+
+        Class<? extends Window> clazz = getWindow().getClass();
+
+        try {
+
+            int darkModeFlag;
+
+            Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+
+            Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
+
+            darkModeFlag = field.getInt(layoutParams);
+
+            Method extraFlagField = clazz.getMethod("setExtraFlags",int.class,int.class);
+
+            extraFlagField.invoke(getWindow(), lightStatusBar? darkModeFlag : 0, darkModeFlag);
+
+        } catch (Exception ignored) {
+
+
+
+        }
+
+    }
     @TargetApi(19)
     private void setTranslucentStatus(boolean on) {
         Window win = getWindow();

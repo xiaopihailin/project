@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.example.godlight.R;
 import com.example.godlight.base.BaseActivity;
-import com.example.godlight.base.BaseApplication;
 import com.example.godlight.view.ClearEditText;
 import com.example.godlight.view.TimerTextView;
 
@@ -23,6 +22,7 @@ import butterknife.OnClick;
 
 public class RegisterActivity extends BaseActivity implements View.OnFocusChangeListener, TextWatcher {
     private final String mPageName = "RegisterActivity";
+    private String flag="获取验证码";
     @Bind(R.id.tv_title)
     TextView tvTitle;
     @Bind(R.id.ll_title)
@@ -68,7 +68,7 @@ public class RegisterActivity extends BaseActivity implements View.OnFocusChange
     protected void loadView() {
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
-        BaseApplication.getInstance().addActivity(this);
+
 
     }
 
@@ -127,8 +127,13 @@ public class RegisterActivity extends BaseActivity implements View.OnFocusChange
             case R.id.et_account:
                 break;
             case R.id.tv_timer:
-                tvTimer.start();
-                tvTimer.setTimes(60);
+                String times = tvTimer.getTimes();
+                if(times.equals(flag)){
+                    tvTimer.start();
+                    tvTimer.setTimes(60);
+                }else{
+                    tvTimer.setToast();
+                }
                 break;
             case R.id.rl_account:
                 break;

@@ -7,15 +7,50 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/title"
-        layout="@layout/include_title" />
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="地图"
-        android:textSize="18dp"
-        android:layout_centerInParent="true" />
+        >
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/zixun"
+            />
+        <TextView
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:layout_marginTop="26dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            />
+
+        <TextView
+            android:textSize="10sp"
+            android:textColor="#333333"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="27dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="经典问答"
+            />
+    </RelativeLayout>
+
+
+
+   <WebView
+       android:layout_below="@+id/relative1"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+
+   </WebView>
+
     <LinearLayout
         android:id="@+id/ll_title"
         android:layout_width="match_parent"
@@ -23,7 +58,28 @@
         android:layout_height="@dimen/title_height"
         android:orientation="horizontal"
         >
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/mine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="41.5dp"
+                android:src="@mipmap/mine"
+                />
+            <TextView
+                android:id="@+id/tv_mine"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/mine"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="我的"
+                android:gravity="center"
+                android:textSize="@dimen/title_size" />
 
+        </RelativeLayout>
         <TextView
             android:id="@+id/tv_order"
             android:layout_width="@dimen/null_width"
@@ -35,16 +91,6 @@
             android:textColor="@color/white"
             android:textSize="@dimen/title_size" />
 
-        <TextView
-            android:id="@+id/tv_mine"
-            android:layout_width="@dimen/null_width"
-            android:layout_marginLeft="1dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="我的"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/title_size" />
+
     </LinearLayout>
 </RelativeLayout>

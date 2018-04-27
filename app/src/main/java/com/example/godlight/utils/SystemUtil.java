@@ -1,6 +1,7 @@
 package com.example.godlight.utils;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -23,10 +24,9 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 
-import com.example.godlight.base.BaseApplication;
-
 import java.io.DataOutputStream;
 import java.io.File;
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -149,7 +149,7 @@ public class SystemUtil {
      *
      * @return
      */
-    public static int getScreenWidth() {
+   /* public static int getScreenWidth() {
 //        WindowManager windowManager = ((Activity)context).getWindowManager();
         int width = 0;
         if (BaseApplication.getInstance().currentActivity() != null) {
@@ -162,14 +162,14 @@ public class SystemUtil {
 
         return width;
 
-    }
+    }*/
 
     /**
      * 获取屏幕高度
      *
      * @return
      */
-    public static int getScreenHeight() {
+   /* public static int getScreenHeight() {
         int height = 0;
         if (BaseApplication.getInstance().currentActivity() != null) {
             WindowManager windowManager = BaseApplication.getInstance().currentActivity().getWindowManager();
@@ -181,7 +181,7 @@ public class SystemUtil {
 
         return height;
 
-    }
+    }*/
 
     public static int[] getWidgetWidth(View view) {
         int[] attr;
@@ -346,7 +346,7 @@ public class SystemUtil {
      *
      * @return
      */
-    public static String getNetworkType() {
+   /* public static String getNetworkType() {
         ConnectivityManager cm = (ConnectivityManager) BaseApplication.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = cm.getActiveNetworkInfo();
         if (info == null) {
@@ -410,7 +410,7 @@ public class SystemUtil {
             return typeName;
         }
         return "Unknown-未知的网络类型";
-    }
+    }*/
 
 
 
@@ -607,7 +607,7 @@ public class SystemUtil {
      *
      * @return
      */
-    public static boolean isRoot() {
+   /* public static boolean isRoot() {
         String command = "chmod 777 " + BaseApplication.getInstance().getPackageCodePath();
         Process process = null;
         DataOutputStream os = null;
@@ -632,7 +632,7 @@ public class SystemUtil {
         }
         Log.d("*** DEBUG ***", "Root SUC ");
         return true;
-    }
+    }*/
 
 
     // SD卡可用内存空间
@@ -755,4 +755,31 @@ public class SystemUtil {
         return dateForamt.format(System.currentTimeMillis());
     }
 
+    //设置状态栏字体为黑色
+    public static boolean setMeizuStatusBarDarkIcon(Activity activity, boolean dark) {
+        boolean result = false;
+        if (activity != null) {
+            try {
+                WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+                Field darkFlag = WindowManager.LayoutParams.class
+                        .getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
+                Field meizuFlags = WindowManager.LayoutParams.class
+                        .getDeclaredField("meizuFlags");
+                darkFlag.setAccessible(true);
+                meizuFlags.setAccessible(true);
+                int bit = darkFlag.getInt(null);
+                int value = meizuFlags.getInt(lp);
+                if (dark) {
+                    value |= bit;
+                } else {
+                    value &= ~bit;
+                }
+                meizuFlags.setInt(lp, value);
+                activity.getWindow().setAttributes(lp);
+                result = true;
+            } catch (Exception e) {
+            }
+        }
+        return result;
+    }
 }
