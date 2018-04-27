@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/include_titlet"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+        <EditText
+            android:id="@+id/pwd"
+            android:layout_width="307dp"
+            android:layout_marginTop="55dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColorHint="#CCCCCC"
+            android:hint="输入当前密码"
+            />
+
+        <EditText
+            android:id="@+id/shurupwd"
+            android:layout_below="@+id/pwd"
+            android:layout_marginTop="22dp"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColorHint="#CCCCCC"
+            android:hint="输入新密码"
+            />
+        <EditText
+            android:layout_below="@+id/shurupwd"
+            android:layout_marginTop="24dp"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColorHint="#CCCCCC"
+            android:hint="确认新密码"
+            />
+    </RelativeLayout>
+
+
+   <RelativeLayout
+       android:layout_marginLeft="39.5dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <ImageView
+           android:id="@+id/jingshi"
+           android:layout_marginTop="18dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@mipmap/jingshi"
+           />
+
+       <TextView
+           android:textSize="12sp"
+           android:layout_marginTop="20dp"
+           android:layout_toRightOf="@+id/jingshi"
+           android:layout_marginLeft="2dp"
+           android:layout_width="275.5dp"
+           android:layout_height="33dp"
+           android:text="必须是6-20个英文字母、数字或符号（除空格），且字母、数字和标点符号至少包括两种"
+           />
+
+   </RelativeLayout>
+
+   <RelativeLayout
+       android:layout_marginTop="53dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <Button
+           android:background="#2D91FF"
+           android:textColor="#FFFFFF"
+           android:layout_centerHorizontal="true"
+           android:layout_width="299dp"
+           android:layout_height="37.5dp"
+           android:text="确定"
+           />
+
+   </RelativeLayout>
+
+
+</LinearLayout>
