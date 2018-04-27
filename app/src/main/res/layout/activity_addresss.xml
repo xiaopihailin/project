@@ -44,7 +44,7 @@
     android:layout_height="wrap_content">
 
     <Button
-        android:id="@+id/button_denglu"
+        android:id="@+id/button_add"
         android:layout_centerHorizontal="true"
         style="@style/bigButton"
         android:textColor="@color/white"

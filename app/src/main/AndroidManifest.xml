@@ -16,14 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity">
+
+        </activity>
+        <activity android:name=".ui.account.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ui.account.LoginActivity" >
-
         </activity>
         <activity android:name=".ui.account.RegisterActivity">
 
@@ -31,6 +31,7 @@
         </activity>
 
         <activity android:name=".ui.account.CeShi">
+
         </activity>
         <activity android:name=".ui.account.MineActivity">
 
@@ -39,6 +40,7 @@
         <activity android:name=".ui.account.ChangedActivity"></activity>
         <activity android:name=".ui.account.AddressActivity"></activity>
         <activity android:name=".ui.account.RegisterSecondeActivity"></activity>
+        <activity android:name=".ui.account.AddJiaActivity"></activity>
     </application>
 
 </manifest>
