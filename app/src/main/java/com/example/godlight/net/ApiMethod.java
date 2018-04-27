@@ -2,6 +2,8 @@ package com.example.godlight.net;
 
 
 import com.example.godlight.bean.LoginBean;
+import com.example.godlight.bean.RegisterBean;
+import com.example.godlight.bean.RegisterYanBean;
 
 import java.util.HashMap;
 import io.reactivex.Observable;
@@ -26,6 +28,14 @@ public class ApiMethod {
 
         ApiSubscribe(Api.getInstance().get(map),observer);
     }
+    //发送验证码
+    public static  void getRegusterYan(Observer<RegisterBean> observer, HashMap<String, String> map){
 
+        ApiSubscribe(Api.getInstance().RegisterSendYan(map),observer);
+    }
+    //验证验证码
+    public static  void getRegusterPanYan(Observer<RegisterYanBean> observer, HashMap<String, String> map){
 
+        ApiSubscribe(Api.getInstance().RegisterPanYan(map),observer);
+    }
 }

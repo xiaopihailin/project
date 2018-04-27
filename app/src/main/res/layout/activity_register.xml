@@ -6,23 +6,7 @@
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-    <RelativeLayout
-        android:id="@+id/ll_title"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/title_height"
-        android:paddingRight="@dimen/default_margin">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="注册"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:textColor="@color/black333"
-            android:textSize="@dimen/title_size"/>
-
-    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/huanying"

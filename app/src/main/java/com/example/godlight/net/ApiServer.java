@@ -2,6 +2,9 @@ package com.example.godlight.net;
 
 
 import com.example.godlight.bean.LoginBean;
+import com.example.godlight.bean.RegisterBean;
+import com.example.godlight.bean.RegisterYanBean;
+
 import java.util.HashMap;
 
 import io.reactivex.Observable;
@@ -18,7 +21,9 @@ public interface ApiServer {
     @GET("Login/index")
     Observable<LoginBean> get(@QueryMap HashMap<String, String> map);
 
-    @POST("Login/index")
-    Observable<LoginBean> post(@QueryMap HashMap<String, String> map);
+    @GET("Userlogin/send")
+    Observable<RegisterBean> RegisterSendYan(@QueryMap HashMap<String, String> map);
 
+    @GET("Userlogin/sendVerification")
+    Observable<RegisterYanBean> RegisterPanYan(@QueryMap HashMap<String, String> map);
 }

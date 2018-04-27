@@ -13,7 +13,7 @@ public class Api {
     //http://192.168.1.48/shengdeng/php/91SD/public/api/Login/index
    // http://192.168.1.12/api/Login/index?user_phone=13521950346&password=123456
     //  http://192.168.1.48/shengdeng/php/91SD/public/api/Login/index
-    public static String path="http://192.168.1.48/shengdeng/php/91SD/public/api/";
+    public static String path="http://192.168.1.12/api/";
     public static ApiServer getInstance(){
         if(apiServer==null){
             synchronized (ApiServer.class){
