@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/image_bacl"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/blackback"
+            />
+        <TextView
+            android:textSize="15sp"
+            android:layout_toRightOf="@+id/image_bacl"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地址管理"
+            />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/reclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+    android:id="@+id/btn_login"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_below="@+id/rl_pwd"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/button_denglu"
+        android:layout_centerHorizontal="true"
+        style="@style/bigButton"
+        android:textColor="@color/white"
+        android:clickable="true"
+        android:background="@drawable/bg_stoke_btn_green_true"
+        android:text="+添加地址" />
+</RelativeLayout>
+
+
+
+
+</LinearLayout>

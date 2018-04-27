@@ -1,6 +1,7 @@
 package com.example.godlight.net;
 
 
+import com.example.godlight.bean.AddressBean;
 import com.example.godlight.bean.LoginBean;
 import com.example.godlight.bean.RegisterBean;
 import com.example.godlight.bean.RegisterYanBean;
@@ -18,7 +19,7 @@ import retrofit2.http.QueryMap;
 
 public interface ApiServer {
     // http://192.168.1.12/api/Login/index?user_phone=13521950346&password=123456
-    @GET("Login/index")
+    @GET("Userlogin/index")
     Observable<LoginBean> get(@QueryMap HashMap<String, String> map);
 
     @GET("Userlogin/send")
@@ -26,4 +27,18 @@ public interface ApiServer {
 
     @GET("Userlogin/sendVerification")
     Observable<RegisterYanBean> RegisterPanYan(@QueryMap HashMap<String, String> map);
+    //所有地址
+    //http://192.168.1.48/shengdeng/php/91SD/public/api/Useraddress/addressIndex
+    @GET("Useraddress/addressIndex")
+    Observable<AddressBean> getaddress(@QueryMap HashMap<String, String> map);
+
+    //所有地址
+    //http://192.168.1.48/shengdeng/php/91SD/public/api/Useraddress/addressIndex
+    @GET("login/register")
+    Observable<LoginBean> getZhuce(@QueryMap HashMap<String, String> map);
+
+    //删除地址
+    //http://192.168.1.48/shengdeng/php/91SD/public/api/Useraddress/addressIndex
+    @GET("Useraddress/addressDel")
+    Observable<LoginBean> Shanchu(@QueryMap HashMap<String, String> map);
 }

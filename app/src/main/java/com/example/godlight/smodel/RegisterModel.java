@@ -55,14 +55,10 @@ public class RegisterModel {
                 zhuFlag.Success(registerYanBean);
             }
         };
-        HashMap<String, String> map = new HashMap<>();
-        map.put("user_phone","15011461275");
-        map.put("verification","465216");
-     /*   Log.i("user_phone",phone);
-        Log.i("verification",yanzhengma);*/
+        HashMap<String, String> map1 = new HashMap<>();
+        map1.put("user_phone",phone);
+        map1.put("verification",yanzhengma);
 
-        ApiMethod.getRegusterPanYan(new MyObserver<RegisterYanBean>(context,listener),map);
-
-
+        ApiMethod.getRegusterPanYan(new MyObserver<RegisterYanBean>(context,listener),map1);
     }
 }

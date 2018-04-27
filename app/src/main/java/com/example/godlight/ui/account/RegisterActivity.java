@@ -1,6 +1,8 @@
 package com.example.godlight.ui.account;
 
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -23,9 +25,17 @@ import com.example.godlight.sview.RegisterView;
 import com.example.godlight.view.ClearEditText;
 import com.example.godlight.view.TimerTextView;
 
+import java.io.IOException;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 
 public class RegisterActivity extends BaseActivity implements View.OnFocusChangeListener, TextWatcher ,RegisterView{
@@ -173,8 +183,9 @@ public class RegisterActivity extends BaseActivity implements View.OnFocusChange
             case R.id.rl_sms_code:
                 break;
             case R.id.btn_register:
+               presenter.GetData(etAccount.getText().toString().trim(),etSmsCode.getText().toString().trim());
 
-                presenter.GetData(etAccount.getText().toString().trim(),etSmsCode.getText().toString().trim());
+
                 break;
         }
     }
@@ -187,8 +198,13 @@ public class RegisterActivity extends BaseActivity implements View.OnFocusChange
     @Override
     public void Success(RegisterYanBean bean) {
         Log.i("beanregister",bean.getMsg()+"");
-        Toast.makeText(RegisterActivity.this,bean.getMsg(),Toast.LENGTH_SHORT).show();
-
+        //Toast.makeText(RegisterActivity.this,bean.getMsg(),Toast.LENGTH_SHORT).show();
+        if(bean.getMsg().equals("验证成功")){
+            Intent intent = new Intent(RegisterActivity.this, RegisterSecondeActivity.class);
+            intent.putExtra("user_phone",etAccount.getText().toString());
+            intent.putExtra("password",etLoginPwd.getText().toString());
+            startActivity(intent);
+        }
     }
 
     @Override
