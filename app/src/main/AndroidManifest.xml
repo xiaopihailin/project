@@ -16,11 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.account.LoginActivity" >
 
@@ -41,6 +37,16 @@
         <activity android:name=".ui.account.AddressActivity"></activity>
         <activity android:name=".ui.account.RegisterSecondeActivity"></activity>
         <activity android:name=".ui.account.AddJiaActivity"></activity>
+        <activity android:name=".ui.account.FaDingActivity"></activity>
+        <activity android:name=".ui.account.ZiXunActivity"></activity>
+        <activity android:name=".ui.account.DingDanActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

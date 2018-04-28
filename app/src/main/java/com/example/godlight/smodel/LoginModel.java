@@ -56,29 +56,5 @@ public class LoginModel {
         ApiMethod.getTopMovies(new MyObserver<LoginBean>(context,listener),map);
 
 
-       /* OkHttpClient client = new OkHttpClient();
-        FormBody.Builder formbody = new FormBody.Builder();
-        formbody.add("user_phone",phone);
-        formbody.add("password",pwd);
-        FormBody body = formbody.build();
-        Request request = new Request.Builder()
-                .url("http://192.168.1.12/api/Login/index")
-                .post(body)//请求体
-                .build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.i("onFailure",e+"");
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String responseBody = response.body().string();
-                Gson gson = new Gson();
-                LoginBean bean = gson.fromJson(responseBody, LoginBean.class);
-                Log.i("onResponse",bean.getMsg()+"");
-            }
-        });*/
-
     }
 }

@@ -9,8 +9,10 @@ import android.widget.Toast;
 
 import com.example.godlight.R;
 import com.example.godlight.base.BaseActivity;
+import com.example.godlight.ui.account.FaDingActivity;
 import com.example.godlight.ui.account.LoginActivity;
 import com.example.godlight.ui.account.MineActivity;
+import com.example.godlight.ui.account.ZiXunActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,6 +28,8 @@ public class MainActivity extends BaseActivity {
     TextView tvMine;
     @Bind(R.id.ll_title)
     LinearLayout llTitle;
+     @Bind(R.id.tv_zixun)
+    TextView tv_zixun;
 
     @Override
     protected void loadView() {
@@ -55,10 +59,16 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.tv_order, R.id.tv_mine})
+    @OnClick({R.id.tv_order, R.id.tv_mine,R.id.tv_zixun})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_order:
+                Intent intent1 = new Intent(MainActivity.this, FaDingActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.tv_zixun:
+                Intent intent2 = new Intent(MainActivity.this, ZiXunActivity.class);
+                startActivity(intent2);
                 break;
             case R.id.tv_mine:
               //  Toast.makeText(this,"点击了",Toast.LENGTH_LONG).show();

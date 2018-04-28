@@ -2,6 +2,7 @@ package com.example.godlight.net;
 
 
 import com.example.godlight.bean.AddressBean;
+import com.example.godlight.bean.DingdanBean;
 import com.example.godlight.bean.LoginBean;
 import com.example.godlight.bean.RegisterBean;
 import com.example.godlight.bean.RegisterYanBean;
@@ -41,4 +42,7 @@ public interface ApiServer {
     //http://192.168.1.48/shengdeng/php/91SD/public/api/Useraddress/addressIndex
     @GET("Useraddress/addressDel")
     Observable<LoginBean> Shanchu(@QueryMap HashMap<String, String> map);
+    //全部订单
+    @GET("order/orderServiceAll")
+    Observable<DingdanBean> AllQuanDingdan(@QueryMap HashMap<String, String> map);
 }

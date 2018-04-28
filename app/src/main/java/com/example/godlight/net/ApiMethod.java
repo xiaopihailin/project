@@ -2,6 +2,7 @@ package com.example.godlight.net;
 
 
 import com.example.godlight.bean.AddressBean;
+import com.example.godlight.bean.DingdanBean;
 import com.example.godlight.bean.LoginBean;
 import com.example.godlight.bean.RegisterBean;
 import com.example.godlight.bean.RegisterYanBean;
@@ -57,5 +58,11 @@ public class ApiMethod {
     public static  void Shanaddress(Observer<LoginBean> observer, HashMap<String, String> map){
 
         ApiSubscribe(Api.getInstance().Shanchu(map),observer);
+    }
+
+    //查询全部订单
+    public static  void ChaAllDingdan(Observer<DingdanBean> observer, HashMap<String, String> map){
+
+        ApiSubscribe(Api.getInstance().AllQuanDingdan(map),observer);
     }
 }
